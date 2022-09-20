@@ -33,4 +33,26 @@ public class StatsService {
         }
         return count;
     }
+    public int maxSales(long[] sales) {
+        int maxMonth = 0;
+        int month = 0;
+        for (long sale : sales) {
+            if (sale <= sales[maxMonth]) {
+                maxMonth = month;
+            }
+            month = month + 1;
+        }
+        return maxMonth + 1;
+    }
+    public int aboveAverage(long[] sales) {
+        long avg = average(sales);
+        int count = 0;
+        for (long sale: sales) {
+            if (sale > avg) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 }
